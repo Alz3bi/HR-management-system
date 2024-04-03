@@ -19,7 +19,42 @@
     </nav>
 
     <main id="main" class="content">
-        
+        <section class="form">
+            <form id="empForm">
+                <fieldset>
+                    <legend>Add new Employee</legend>
+
+                    <label for="fname">Full name</label>
+                    <input type="text" id="fname" name="fname" placeholder="Full Name">
+                    <br/>
+          
+                    <label for="department">Department</label>
+                    <select id="department" name="department">
+                        <option value="Administration">Administration</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Development">Development</option>
+                        <option value="Finance">Finance</option>
+                    </select>
+                    <br/>
+
+                    <label for="level">Level</label>
+                    <select id="level" name="level">
+                        <option value="Junior">Junior</option>
+                        <option value="Mid-Senior">Mid-Senior</option>
+                        <option value="Senior">Senior</option>
+                    </select>
+                    <br/>
+
+                    <label for="image">Image url</label>
+                    <input type="text" id="image" name="image" placeholder="Image url">
+                    <br/>
+
+                    <input type="submit" value="Add">
+                </fieldset>
+            </form>
+        </section>
+        <div id="empList" class="flex-container">
+        </div>
     </main>
 
     <footer class="footer">
