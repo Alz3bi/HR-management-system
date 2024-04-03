@@ -1,16 +1,15 @@
 'use strict';
 
-const employees = [] ;
+const idList = [] ;
 
-function Employee(id, fullName, department, level, imageURL){
-    this.employeeId = id;
+function Employee(fullName, department, level, imageURL){
     this.fullName = fullName;
     this.department = department;
     this.level = level;
     this.imageURL = imageURL;
-    this.salary = this.salary();
 
-    employees.push(this);
+    this.salary = this.salary();
+    this.employeeId = this.generateId();
 }
 
 Employee.prototype.salary = function(){
@@ -28,27 +27,50 @@ Employee.prototype.salary = function(){
     }
 }
 
-let emp1 = new Employee(1000, "Ghazi Samer", "Administration", "Senior");
-let emp2 = new Employee(1001, "Lana Ali", "Finance", "Senior");
-let emp3 = new Employee(1002, "Tamara Ayoub", "Marketing", "Senior");
-let emp4 = new Employee(1003, "	Safi Walid", "Administration", "Mid-Senior");
-let emp5 = new Employee(1004, "Omar Zaid", "Development", "Senior");
-let emp6 = new Employee(1005, "	Rana Saleh", "Development", "Junior");
-let emp7 = new Employee(1006, "Hadi Ahmad", "Finance", "Mid-Senior");
-
-const main = document.getElementById('main');
-const section = document.createElement('section');
-main.appendChild(section)
-const h3 = document.createElement('h2');
-section.appendChild(h3)
-
-Employee.prototype.render = function() {
-    const p = document.createElement('p');
-    p.textContent = `Full Name: ${this.fullName}, Salary: ${this.salary}`;
-    section.appendChild(p);
-    
+Employee.prototype.generateId = function(){
+    let id;
+    for (;;) {
+        id = Math.floor(1000 + Math.random() * 9000);
+        if (!idList.includes(id)) {
+            idList.push(id);
+            return id;
+        }
+    }
 }
 
-employees.forEach((employee) => {
-    employee.render();
-});
+let empForm = document.getElementById("empForm");
+empForm.addEventListener('submit', addNewEmployeeHandler);
+
+function addNewEmployeeHandler(event) {
+    event.preventDefault();
+    console.log(event);
+    let fullName = event.target.fname.value;
+    let department = event.target.department.value;
+    let level = event.target.level.value;
+    let image = event.target.image.value;
+
+    let emp = new Employee(fullName,department,level,image);
+    emp.render();
+}
+
+const section = document.getElementById('empList');
+
+Employee.prototype.render = function() {
+    const div = document.createElement('div');
+    div.classList.add("card");
+    section.appendChild(div);
+
+    const img = document.createElement('img');
+    img.classList.add("cardImage");
+    img.src = this.imageURL;
+    div.appendChild(img);
+
+    const subDiv = document.createElement('div')
+    div.classList.add("container");
+    div.appendChild(subDiv)
+
+    const p = document.createElement('p')
+    p.textContent = `Name: ${this.fullName} - ID: ${this.employeeId} 
+    Department: ${this.department} - Level: ${this.level}`;
+    subDiv.appendChild(p)
+}
