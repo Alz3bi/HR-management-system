@@ -9,3 +9,6 @@
 * Created a function to generate a unique four digits employee id number.
 * added an event listener to get the data from the form instead of having hard coded data.
 * refactored the render prototype function to render each employee information in a separate card in the home page.
+### Day 03 : 
+* added new feature to the site: localStorage
+* rendered a table to show some info about the embloyees in the accounting page
