@@ -45,13 +45,13 @@ Employee.prototype.generateId = function () {
   }
 }
 function declare() {
-  let emp1 = new Employee("Ghazi Samer", "Administration", "Senior", "./assets/Ghazi.jpg");
-  let emp2 = new Employee("Lana Ali", "Finance", "Senior", "./assets/Lana.jpg");
-  let emp3 = new Employee("Tamara Ayoub", "Marketing", "Senior", "./assets/Tamara.jpg");
-  let emp4 = new Employee("Safi Walid", "Administration", "Mid-Senior", "./assets/Safi.jpg");
-  let emp5 = new Employee("Omar Zaid", "Development", "Senior", "./assets/Omar.jpg");
-  let emp6 = new Employee("Rana Saleh", "Development", "Junior", "./assets/Rana.jpg");
-  let emp7 = new Employee("Hadi Ahmad", "Finance", "Mid-Senior", "./assets/Hadi.jpg");
+  let emp1 = new Employee("Ghazi Samer", "Administration", "Senior", './assets/Ghazi.jpg');
+  let emp2 = new Employee("Lana Ali", "Finance", "Senior", './assets/Lana.jpg');
+  let emp3 = new Employee("Tamara Ayoub", "Marketing", "Senior", './assets/Tamara.jpg');
+  let emp4 = new Employee("Safi Walid", "Administration", "Mid-Senior", './assets/Safi.jpg');
+  let emp5 = new Employee("Omar Zaid", "Development", "Senior", './assets/Omar.jpg');
+  let emp6 = new Employee("Rana Saleh", "Development", "Junior", './assets/Rana.jpg');
+  let emp7 = new Employee("Hadi Ahmad", "Finance", "Mid-Senior", './assets/Hadi.jpg');
 
   let jsonEmployee = JSON.stringify(employeeList);
   localStorage.setItem("allEmployees", jsonEmployee);
